@@ -17,6 +17,7 @@ public class playmenu : MonoBehaviour
     }
     public void play()
     {
+        print("NextLevel");
         SceneManager.LoadScene(2);
     }
     public void PP()

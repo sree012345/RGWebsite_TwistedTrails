@@ -39,7 +39,7 @@ public class decider : MonoBehaviour
             {
               
                 winpanel.SetActive(true);
-                PlayerPrefs.SetInt("level", SceneManager.GetActiveScene().buildIndex + 1);
+                PlayerPrefs.SetInt("level127", SceneManager.GetActiveScene().buildIndex + 1);
                 Destroy(selecter);
                 papereffect.SetActive(true);
                 deviceanimation.enabled = true;

@@ -159,13 +159,13 @@ public class AdManager : MonoBehaviour
 			zone = null;
 	
 		ShowOptions options = new ShowOptions ();
-		options.resultCallback = AdCallbackhandler;
+		//options.resultCallback = AdCallbackhandler;
 	
-		if (Advertisement.IsReady (zone)) {
-			Advertisement.Show (zone, options);
-		} else {
-			//showRewardVideo ();
-		}
+		//if (Advertisement.IsReady (zone)) {
+		//	Advertisement.Show (zone, options);
+		//} else {
+		//	//showRewardVideo ();
+		//}
 	}
 
 	void AdCallbackhandler (ShowResult result)

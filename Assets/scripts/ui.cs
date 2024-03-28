@@ -11,6 +11,11 @@ public class ui : MonoBehaviour
     public AudioSource sounds;
     public AudioSource plugInSound;
     public static int  addNo;
+
+    public GameObject play;
+    public GameControllerScript GameControllerScriptAds;
+   
+
     private void Awake()
     {
         if(!Instance)
@@ -18,29 +23,69 @@ public class ui : MonoBehaviour
             Instance = this;
         }
 
+        GameObject.Find("Plane").transform.localScale=new Vector3(5, 4, 7);
+
+        if(PlayerPrefs.GetInt("Playbtn127")==0)
+        {
+            play.SetActive(true);
+        }
+        else
+        {
+            play.SetActive(false);
+            PlayerPrefs.SetInt("Playbtn127", 0);
+        }
+
     }
     public void nextlevel()
     {
-        if (addNo == 1)
-        {
-            addNo = 0;
-            AdManager.instance.ShowAd();
-        }
-        else
-            addNo++;
-        Debug.Log(addNo);
+       // PlayerPrefs.SetString("NextLevel127", "1");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
     }
-    public void looplevel()
-    {
-        PlayerPrefs.SetInt("level", 1);
-        SceneManager.LoadScene(1);
-    }
+    
     public void restart()
     {
-      
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        AdManager.instance.ShowAd();
+        PlayerPrefs.SetInt("Playbtn127", 1);
+        PlayerPrefs.SetString("Restart127", "2");
+        GameControllerScriptAds.SomeMethod();     
+    }
+
+    //public void onplaybuttonclicked()
+    //{
+    //    PlayerPrefs.SetString("Play127", "3");
+    //    GameControllerScriptAds.SomeMethod();
+    //}
+
+
+    public void PlayNextLevelMessageFromWeb()
+    {
+        if (PlayerPrefs.GetString("Restart127") == "2")
+        {
+           
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        //else if (PlayerPrefs.GetString("NextLevel127")== "1")
+        //{
+        //    //if (addNo == 1)
+        //    //{
+        //    //    addNo = 0;
+        //    //    //AdManager.instance.ShowAd();
+        //    //}
+        //    //else
+        //    //    addNo++;
+        //   // Debug.Log(addNo);
+        //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //}
+          
+    }
+
+
+
+
+    public void looplevel()
+    {
+        PlayerPrefs.SetInt("level127", 1);
+        SceneManager.LoadScene(1);
     }
     public void helppanelon()
     {
@@ -62,4 +107,6 @@ public class ui : MonoBehaviour
             helppanel.SetActive(false);
         }
     }
+    
+
 }
