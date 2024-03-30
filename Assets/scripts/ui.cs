@@ -38,8 +38,11 @@ public class ui : MonoBehaviour
     }
     public void nextlevel()
     {
-       // PlayerPrefs.SetString("NextLevel127", "1");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        PlayerPrefs.SetString("NextLevel127", "1");
+        GameControllerScriptAds.SomeMethod();
+        //PlayNextLevelMessageFromWeb();
+
+
 
     }
     
@@ -47,7 +50,8 @@ public class ui : MonoBehaviour
     {
         PlayerPrefs.SetInt("Playbtn127", 1);
         PlayerPrefs.SetString("Restart127", "2");
-        GameControllerScriptAds.SomeMethod();     
+        GameControllerScriptAds.SomeMethod();
+        //PlayNextLevelMessageFromWeb(); 
     }
 
     //public void onplaybuttonclicked()
@@ -56,15 +60,22 @@ public class ui : MonoBehaviour
     //    GameControllerScriptAds.SomeMethod();
     //}
 
-
+     
     public void PlayNextLevelMessageFromWeb()
     {
         if (PlayerPrefs.GetString("Restart127") == "2")
         {
            
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            PlayerPrefs.SetString("Restart127", "");
+
         }
-        //else if (PlayerPrefs.GetString("NextLevel127")== "1")
+        else if (PlayerPrefs.GetString("NextLevel127")== "1")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            PlayerPrefs.SetString("NextLevel127", "");
+
+        }
         //{
         //    //if (addNo == 1)
         //    //{
@@ -74,9 +85,9 @@ public class ui : MonoBehaviour
         //    //else
         //    //    addNo++;
         //   // Debug.Log(addNo);
-        //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
         //}
-          
+
     }
 
 
