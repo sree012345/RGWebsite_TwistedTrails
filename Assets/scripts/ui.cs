@@ -24,6 +24,7 @@ public class ui : MonoBehaviour
         }
 
         GameObject.Find("Plane").transform.localScale=new Vector3(5, 4, 7);
+        GameObject.Find("Sphere").SetActive(false);
 
         if(PlayerPrefs.GetInt("Playbtn127")==0)
         {
@@ -40,7 +41,7 @@ public class ui : MonoBehaviour
     {
         PlayerPrefs.SetString("NextLevel127", "1");
         GameControllerScriptAds.SomeMethod();
-        //PlayNextLevelMessageFromWeb();
+        PlayNextLevelMessageFromWeb();
 
 
 
@@ -51,7 +52,7 @@ public class ui : MonoBehaviour
         PlayerPrefs.SetInt("Playbtn127", 1);
         PlayerPrefs.SetString("Restart127", "2");
         GameControllerScriptAds.SomeMethod();
-        //PlayNextLevelMessageFromWeb(); 
+        PlayNextLevelMessageFromWeb(); 
     }
 
     //public void onplaybuttonclicked()
