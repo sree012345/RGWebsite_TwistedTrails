@@ -18,4 +18,18 @@ public class ResponseFromWeb : MonoBehaviour
         //errorPopup.SetActive(false);
     }
 
+    public void PauseFunction(string param)
+    {
+        print("PauseGame");
+        AudioListener.pause = true;
+        Time.timeScale = 0;
+    }
+
+    public void UnPauseFunction(string param)
+    {
+        print("UnpauseGame");
+        Time.timeScale = 1;
+        AudioListener.pause = false;
+    }
+
 }
