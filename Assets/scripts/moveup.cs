@@ -35,43 +35,43 @@ public class moveup : MonoBehaviour
         {
          
 
-            if (dragon)
-            {
+            //if (dragon)
+            //{
                
-                Physics.Raycast(transform.position, Vector3.down, out down, 10f);
-                Debug.DrawRay(transform.position, Vector3.down * 10, Color.yellow);
-                float x = Input.GetAxis("Mouse X") * 5 * Mathf.Deg2Rad;
-                x = Mathf.Clamp(x, -0.5f, 0.5f);
-                transform.position += new Vector3(x, 0, 0);
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x, -2.5f, 2.5f), transform.position.y, transform.position.z);
-                if (presentpos.x == transform.position.x)
-                {
-                }
-                else
-                {
-                    swiped = true;
-                    if (down.collider != null)
-                    {
-                        if (down.collider.tag == "drop")
-                        {
-                            droppos = down.collider.transform.position;
-                        }
-                    }
-                    else
-                    {
-                        droppos = presentpos;
-                    }
-                }
+            //    Physics.Raycast(transform.position, Vector3.down, out down, 10f);
+            //    Debug.DrawRay(transform.position, Vector3.down * 10, Color.yellow);
+            //    float x = Input.GetAxis("Mouse X") * 5 * Mathf.Deg2Rad;
+            //    x = Mathf.Clamp(x, -0.5f, 0.5f);
+            //    transform.position += new Vector3(x, 0, 0);
+            //    transform.position = new Vector3(Mathf.Clamp(transform.position.x, -2.5f, 2.5f), transform.position.y, transform.position.z);
+                //if (presentpos.x == transform.position.x)
+                //{
+                //}
+                //else
+                //{
+                //    swiped = true;
+                //    if (down.collider != null)
+                //    {
+                //        if (down.collider.tag == "drop")
+                //        {
+                //            droppos = down.collider.transform.position;
+                //        }
+                //    }
+                //    else
+                //    {
+                //        droppos = presentpos;
+                //    }
+                //}
               
 
-            }
+            //}
             
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             dragon = false;
-        //    Debug.Log("drag off");
+          //Debug.Log("drag off");
             if (swiped)
             {
                 dropdown(droppos);

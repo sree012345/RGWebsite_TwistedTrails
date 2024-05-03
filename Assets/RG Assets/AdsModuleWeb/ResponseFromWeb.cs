@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ResponseFromWeb : MonoBehaviour
 {
-   // public GameObject errorPopup;
+    private bool isPause = false;
 
     public void MyFunction(string param)
     {
         print("param" + param);
-      //  errorPopup.SetActive(true);
+        //  errorPopup.SetActive(true);
         Application.Quit();
     }
 
@@ -20,16 +20,30 @@ public class ResponseFromWeb : MonoBehaviour
 
     public void PauseFunction(string param)
     {
-        print("PauseGame");
-        AudioListener.pause = true;
-        Time.timeScale = 0;
+        if (!isPause)
+        {
+            print("PauseGame");
+            isPause = true;
+            print("isPause" + isPause);
+            PlayerPrefs.SetFloat("TT127_Pause", Time.timeScale);
+            print("time" + PlayerPrefs.GetFloat("TT127_Pause"));
+            AudioListener.pause = true;
+            Time.timeScale = 0;
+        }
     }
 
     public void UnPauseFunction(string param)
     {
-        print("UnpauseGame");
-        Time.timeScale = 1;
-        AudioListener.pause = false;
+        if (isPause)
+        {
+            print("UnpauseGame");
+            print("PauseGame");
+            isPause = false;
+            print("PauseGame");
+            print("time" + PlayerPrefs.GetFloat("TT127_Pause"));
+            Time.timeScale = PlayerPrefs.GetFloat("TT127_Pause");
+            AudioListener.pause = false;
+        }
     }
 
 }

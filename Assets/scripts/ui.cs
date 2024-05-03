@@ -41,7 +41,7 @@ public class ui : MonoBehaviour
     {
         PlayerPrefs.SetString("NextLevel127", "1");
         GameControllerScriptAds.SomeMethod();
-       // PlayNextLevelMessageFromWeb();
+        PlayNextLevelMessageFromWeb();
 
 
 
@@ -52,7 +52,7 @@ public class ui : MonoBehaviour
         PlayerPrefs.SetInt("Playbtn127", 1);
         PlayerPrefs.SetString("Restart127", "2");
         GameControllerScriptAds.SomeMethod();
-       // PlayNextLevelMessageFromWeb(); 
+        PlayNextLevelMessageFromWeb(); 
     }
 
     //public void onplaybuttonclicked()
@@ -115,7 +115,7 @@ public class ui : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && helppanel)
         {
-            Debug.Log("on to off");
+           // Debug.Log("on to off");
             helppanel.SetActive(false);
         }
     }
